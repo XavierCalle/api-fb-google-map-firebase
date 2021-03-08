@@ -1,0 +1,80 @@
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+#logoImg{
+  width: 50px;
+  height: 50px;
+  border-radius:150px;
+  object-fit: cover;
+}
+h2{
+  margin-top: 0px !important;
+}
+footer{
+  width: 100%;
+}
+.btn{
+  width: 100% !important;
+  border-radius: 15px !important;
+  text-align: center !important;
+  background-color: #3B5998 !important;
+  color: #fcfcfc !important;
+  font-weight:500 !important;
+  text-align: center !important;
+  font-size: calc(14px + (16 - 14) * ((100vw - 300px) / (1920 - 300))) !important;
+  border-radius: 5px !important;
+  text-transform:capitalize !important;
+  filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.3)) !important;
+}
+.btn:hover {
+  transform: scale(1.05, 1.05);
+}
+.firebaseui-idp-list{
+  display:flex;
+}
+.firebaseui-list-item{
+  margin: 0 1% ;
+}
+.firebaseui-card-content {
+  padding: 0px;
+}
+.firebaseui-idp-button{
+  border-radius: calc(12px + (15 - 12) * ((100vw - 300px) / (1920 - 300))) !important;
+}
+#authModal{
+  border-radius: calc(12px + (15 - 12) * ((100vw - 300px) / (1920 - 300))) !important;
+}
+
+@media screen and (max-width: 767px) {
+  .firebaseui-idp-text{
+      display:none !important;
+  }
+  .firebaseui-idp-list{
+      text-align: left;
+      display:flex;
+      margin: 1em 2em;
+  }
+  .firebaseui-list-item{
+      margin: 0 10% ;
+      margin-bottom: 0px !important;
+  }
+  .firebaseui-card-content{
+      max-width: 100%;
+  }
+  .btn{
+    margin-bottom: 10px !important;
+  }
+
+}
+#switcher{
+  background-color: rgb(59, 89, 152,0.8) !important;
+}
+.bloque_1{
+  min-height: 500px;
+}
+.bloque_2{
+  min-height: 500px;
+}

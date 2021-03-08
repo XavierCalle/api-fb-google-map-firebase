@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- firebase ui -->
+    <script src="https://www.gstatic.com/firebasejs/ui/3.4.0/firebase-ui-auth__es.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- Import Montserrat font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!-- CSS Section -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="./css/materialize.min.css" media="screen,projection" />
+    <!--Import Google Icon Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Import Slick for card slider -->
+
+    <title>Proyecto AD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-performance.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+
+    
+    <nav class="light-blue lighten-1" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">
+          <img id="logoImg" src="https://firebasestorage.googleapis.com/v0/b/adapp-8ab2c.appspot.com/o/zip-code.png?alt=media&token=6d1db251-a713-45de-b879-a158b558857a">
+        </a>
+      </div>
+    </nav>
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <h1 class="header center orange-text">Agenda de direcciones</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Guarda los últimos lugares en los que has estado</h5>
+        </div>
+        <div class="row center">
+          <a href="#authModal" id="download-button" class="modal-trigger btn-large waves-effect waves-light orange">Ingresar</a>
+        </div>
+  
+      </div>
+    </div>
+  
+  
+    <div class="container">
+      <div class="section">
+  
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center light-blue-text"><i class="material-icons">location_on</i></h2>
+              <h5 class="center">¿Qué es?</h5>
+  
+              <p class="light" style="text-align: justify;">Una libreta de direcciones es una libreta o una base de datos utilizada para almacenar entradas de lugares en los que se ha encontrado en algún momento.</p>
+            </div>
+          </div>
+  
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center light-blue-text"><i class="material-icons">gps_fixed</i></h2>
+              <h5 class="center">¿Qué ofrecemos?</h5>
+  
+              <p class="light" style="text-align: justify;">Esta aplicación le ofrece al usuario guardar los lugares en los que ha estado, fecha y hora para que disponga de ellos a futuro.</p>
+            </div>
+          </div>
+  
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center light-blue-text"><i class="material-icons">home</i></h2>
+              <h5 class="center">¿Cómo funciona?</h5>
+  
+              <p class="light">El usuario entra a la aplicación, dispone de un mapa en el cual registrar su ubicación actual u otra ubicación, poner un recordatorio del lugar y guardarlo.</p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+    <footer class="page-footer orange">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Nosotros</h5>
+            <p class="grey-text text-lighten-4">Nos encargamos de registrar todas tus ubicaciones. <br>Disponemos de total confiabilidad. <br> ZIP S.A.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <div id="authModal" class="modal">
+      <div class="modal-content">
+  
+          <div>
+              <div id="login-page" class="row" style="margin-bottom: 0px;">
+      
+                  <div class="col s12">
+                    
+                    <!-- <h4 style="color:white">Iniciar Sesión</h4> -->
+                            
+                    <div class="login-form">
+
+                      <div class="row" style="margin-bottom: 0px;">
+                          <div id="firebaseui-auth-container">
+                          </div> 
+                      </div>
+                  
+                      <div class="row" style=" margin-bottom: 0rem !important;">
+                        <div class="input-field col s12" style="background-color: white; border-radius: 30px; margin-bottom: 0rem !important;">
+                          <i style="color:#007985" class="material-icons prefix">mail_outline</i>
+                          <input class="validate" id="txtEmail" type="email">
+                          <label for="txtEmail" data-error="wrong" data-success="right">Correo</label>
+                        </div>
+                        <div class="input-field col s12" style="background-color: white; border-radius: 30px;">
+                          <i style="color:#007985" class="material-icons prefix">lock_outline</i>
+                          <input id="txtPassword" type="password">
+                          <label for="txtPassword">Contraseña</label>
+                        </div>
+                      </div>
+                      
+  
+                          
+                      <div id="personalData" class="row" >
+
+                          <div class="input-field col s12" style="background-color: white; border-radius: 30px; margin-bottom: 0rem !important;">
+                              <i style="color:#007985" class="material-icons prefix">local_phonee</i>
+                              <input class="validate" id="phone" type="text">
+                              <label for="phone" data-error="wrong" data-success="right">Teléfono</label>
+                          </div>
+                          <div class="input-field col s12" style="background-color: white; border-radius: 30px; margin-bottom: 0rem !important;">
+                            <i style="color:#007985" class="material-icons prefix">person</i>
+                            <input class="validate" id="name" type="text">
+                            <label for="name" data-error="wrong" data-success="right">Nombres y apellidos</label>
+                          </div>
+                      </div>         
+
+                      <div class="row" style=" margin-bottom: 0rem !important;">
+                          <div class="input-field col s12 m6" style="margin-top: 0rem !important; margin-bottom: 0rem !important;">
+                              <button id="btnSubmit" onclick="submit()" class="btn col s12 center-align">Iniciar sesión</button>
+                          </div>
+                          <div class="col s12 m6" style="margin-top: 0rem !important; margin-bottom: 0rem !important;">
+                            <button class="btn buttonsLogin" onclick="switchView()" id="switcher">Registrarse</button>
+                          </div>
+                      </div>   
+      
+              
+                    </div>
+      
+                  </div>
+                </div> 
+        
+      
+          </div>
+  
+      </div>
+    </div>
+    
+    
+    <!-- Call JQuery to execute shorter js scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Load Materialize js -->
+    <script src="./js/materialize.js"></script>
+    <!-- Load google maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAMd2EAGT4eVZonNMUbL-Qm5EDCtqzsH0"></script>
+    <script src="https://unpkg.com/location-picker/dist/location-picker.min.js"></script>
+    
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+    
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyDc3gl4x2ro0-SPQHtdI4-00YMl4IS-ie4",
+        authDomain: "adapp-8ab2c.firebaseapp.com",
+        databaseURL: "https://adapp-8ab2c-default-rtdb.firebaseio.com",
+        projectId: "adapp-8ab2c",
+        storageBucket: "adapp-8ab2c.appspot.com",
+        messagingSenderId: "437143353415",
+        appId: "1:437143353415:web:3526c51db19cfad0459962",
+        measurementId: "G-L2EL6G5LYD"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      var perf = firebase.performance();
+
+        $("#personalData").hide();
+        
+      firebase.analytics();
+      (function($){
+        $(function(){
+        
+          $('.sidenav').sidenav();
+        
+        }); // end of document ready
+      })(jQuery); // end of jQuery name space
+
+    </script>
+    <!-- Scripts Section -->
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>
