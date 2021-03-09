@@ -4,7 +4,7 @@
 * **Firebase**
 
 Consumo de API's externas para: 
-Autenticación de usuarios (Facebook y Google) y registro de direcciones ()
+Autenticación de usuarios (Facebook y Google) y registro de direcciones (Google Maps)
 
 ### Base de datos
 _Firebase_
