@@ -13,7 +13,7 @@ _Firebase_
 
 ### Mapa
 _Google Maps_.
-Se utilizó el mapa de google para guardar las direcciones exactas en la base de datos, tanto longitud como latitud.
+* Se utilizó el mapa de google para guardar las direcciones exactas en la base de datos, tanto longitud como latitud.
 
 ### [Aplicación Web](https://adapp-8ab2c.firebaseapp.com/)
 
