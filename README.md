@@ -8,8 +8,8 @@ Autenticación de usuarios (Facebook y Google) y registro de direcciones ()
 
 ### Base de datos
 _Firebase_
-* Firestore: Aquí se guardan los datos encriptados.
-* Autenticación: Se utiliza los métodos de autenticación nativos de _Firebase_ además del consumo de las API's de Google y Facebook
+* Firestore: Aquí se guardan los datos.
+* Autenticación: Se utiliza los métodos de autenticación nativos de _Firebase_ además del consumo de las API's de Google y Facebook.
 
 ### Mapa
 _Google Maps_.
